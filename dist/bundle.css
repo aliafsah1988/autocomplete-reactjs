@@ -28,7 +28,7 @@
   border: none;
   cursor: pointer;
   width: 100%;
-  color: #444;
+  color: #555;
   line-height: 20px;
 }
 @media only screen and (max-width: 767px) {
@@ -63,7 +63,7 @@
 }
 .g-autocomplete .g-form-select__text .g-form-select__text--loading {
   width: 35px;
-  color: #333;
+  color: #555;
 }
 .g-autocomplete .g-form-select__text .g-form-select__text--loading div {
   display: flex;
@@ -73,20 +73,20 @@
 }
 .g-autocomplete .g-form-select__text .g-form-select__text--close {
   width: 35px;
-  color: #444;
+  color: #555;
   margin-top: auto;
   margin-bottom: auto;
   font-size: 15px;
 }
 .g-autocomplete .g-form-select__text .g-form-select__text--close:hover {
-  color: #000;
+  color: #555;
 }
 .g-autocomplete .dropdown-options {
   position: absolute;
-  background-color: #fff;
+  background-color: #555;
   min-width: 160px;
-  box-shadow: 0px;
-  -webkit-box-shadow: 0px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 1;
   width: 100%;
   border: 1px solid #b4bad2;
@@ -95,13 +95,13 @@
   -webkit-border-radius: 5px;
 }
 .g-autocomplete .dropdown-options .dropdown-options__item {
-  color: #333;
+  color: #555;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 .g-autocomplete .dropdown-options .dropdown-options__item--loading {
-  color: #333;
+  color: #555;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -115,7 +115,7 @@
   -webkit-border-radius: 4px;
 }
 .hero-autocomplete .g-form-select--input {
-  color: #444;
+  color: #555;
 }
 .hero-autocomplete .g-form-select__text--loading {
   border-radius: 4px;
@@ -126,21 +126,21 @@
 }
 .hero-autocomplete .g-form-select__text--indicator {
   color: #fff;
-  background: #1aaf76;
+  background: #555;
   min-width: 47px;
 }
 .hero-autocomplete .g-form-select__text--indicator .icon-search {
   color: #fff;
-  background: #1aaf76;
+  background: #555;
 }
 @media only screen and (max-width: 767px) {
   .hero-autocomplete .g-form-select__text--indicator {
     order: 1;
-    color: #1aaf76;
+    color: #555;
     background: #fff;
   }
   .hero-autocomplete .g-form-select__text--indicator .icon-search {
-    color: #1aaf76;
+    color: #555;
     background: #fff;
   }
   .hero-autocomplete .g-form-select--input {
@@ -159,11 +159,11 @@
   .hero-autocomplete .g-form-select__text--indicator {
     order: 1;
     min-width: 45px;
-    color: #1aaf76;
+    color: #555;
     background: #fff;
   }
   .hero-autocomplete .g-form-select__text--indicator .icon-search {
-    color: #1aaf76;
+    color: #555;
     background: #fff;
   }
   .hero-autocomplete .g-form-select--input {
