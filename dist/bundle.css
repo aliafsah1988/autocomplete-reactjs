@@ -110,126 +110,126 @@
 .g-autocomplete .dropdown-options .dropdown-options__item--loading span {
   margin: auto;
 }
-.hero-autocomplete {
+.default-autocomplete {
   border-radius: 4px;
   -webkit-border-radius: 4px;
 }
-.hero-autocomplete .g-form-select--input {
+.default-autocomplete .g-form-select--input {
   color: #555;
 }
-.hero-autocomplete .g-form-select__text--loading {
+.default-autocomplete .g-form-select__text--loading {
   border-radius: 4px;
   -webkit-border-radius: 4px;
 }
-.hero-autocomplete .g-form-select__text--loading margin-right 5px div {
+.default-autocomplete .g-form-select__text--loading margin-right 5px div {
   margin-right: 3px;
 }
-.hero-autocomplete .g-form-select__text--indicator {
+.default-autocomplete .g-form-select__text--indicator {
   color: #fff;
   background: #555;
   min-width: 47px;
 }
-.hero-autocomplete .g-form-select__text--indicator .icon-search {
+.default-autocomplete .g-form-select__text--indicator .icon-search {
   color: #fff;
   background: #555;
 }
 @media only screen and (max-width: 767px) {
-  .hero-autocomplete .g-form-select__text--indicator {
+  .default-autocomplete .g-form-select__text--indicator {
     order: 1;
     color: #555;
     background: #fff;
   }
-  .hero-autocomplete .g-form-select__text--indicator .icon-search {
+  .default-autocomplete .g-form-select__text--indicator .icon-search {
     color: #555;
     background: #fff;
   }
-  .hero-autocomplete .g-form-select--input {
+  .default-autocomplete .g-form-select--input {
     order: 2;
     border-radius: 4px;
     -webkit-border-radius: 4px;
   }
-  .hero-autocomplete .g-form-select__text--loading {
+  .default-autocomplete .g-form-select__text--loading {
     order: 3;
   }
-  .hero-autocomplete .g-form-select__text--close {
+  .default-autocomplete .g-form-select__text--close {
     order: 4;
   }
 }
 @media only screen and (max-width: 375px) {
-  .hero-autocomplete .g-form-select__text--indicator {
+  .default-autocomplete .g-form-select__text--indicator {
     order: 1;
     min-width: 45px;
     color: #555;
     background: #fff;
   }
-  .hero-autocomplete .g-form-select__text--indicator .icon-search {
+  .default-autocomplete .g-form-select__text--indicator .icon-search {
     color: #555;
     background: #fff;
   }
-  .hero-autocomplete .g-form-select--input {
+  .default-autocomplete .g-form-select--input {
     order: 2;
   }
-  .hero-autocomplete .g-form-select__text--loading {
+  .default-autocomplete .g-form-select__text--loading {
     order: 3;
   }
-  .hero-autocomplete .g-form-select__text--close {
+  .default-autocomplete .g-form-select__text--close {
     order: 4;
   }
 }
-.search-page-autocomplete {
+.radius-autocomplete {
   border-radius: 62px;
   -webkit-border-radius: 62px;
   box-shadow: 0px 1px 6px rgba(0,0,0,0.2);
   -webkit-box-shadow: 0px 1px 6px rgba(0,0,0,0.2);
 }
-.search-page-autocomplete .g-form-select__text {
+.radius-autocomplete .g-form-select__text {
   border-radius: 62px;
   -webkit-border-radius: 62px;
   display: grid;
   grid-template-columns: 40px auto 40px;
 }
-.search-page-autocomplete .g-form-select__text .g-form-select__text--indicator {
+.radius-autocomplete .g-form-select__text .g-form-select__text--indicator {
   order: 1;
   border-radius: 62px;
   -webkit-border-radius: 62px;
   color: #000;
   background: #fff;
 }
-.search-page-autocomplete .g-form-select__text .g-form-select__text--indicator .icon-search {
+.radius-autocomplete .g-form-select__text .g-form-select__text--indicator .icon-search {
   color: #000;
   background: #fff;
 }
-.search-page-autocomplete .g-form-select__text .g-form-select--input {
+.radius-autocomplete .g-form-select__text .g-form-select--input {
   order: 2;
   border-radius: 62px;
   -webkit-border-radius: 62px;
   max-width: 689px;
 }
-.search-page-autocomplete .g-form-select__text .g-form-select__text--loading {
+.radius-autocomplete .g-form-select__text .g-form-select__text--loading {
   order: 3;
 }
-.search-page-autocomplete .g-form-select__text .g-form-select__text--loading div {
+.radius-autocomplete .g-form-select__text .g-form-select__text--loading div {
   margin-right: 3px;
 }
-.search-page-autocomplete .g-form-select__text .g-form-select__text--close {
+.radius-autocomplete .g-form-select__text .g-form-select__text--close {
   order: 4;
   margin-right: 5px;
 }
 @media only screen and (max-width: 767px) {
-  .search-page-autocomplete .g-form-select--input {
+  .radius-autocomplete .g-form-select--input {
     font-size: 15px;
     text-align: center;
   }
-  .search-page-autocomplete .g-form-select__text--indicator {
+  .radius-autocomplete .g-form-select__text--indicator {
     grid-column-start: 1;
   }
 }
 @media only screen and (max-width: 375px) {
-  .search-page-autocomplete .g-form-select--input {
+  .radius-autocomplete .g-form-select--input {
     font-size: 15px;
     text-align: center;
   }
-  .search-page-autocomplete .g-form-select__text--indicator {
+  .radius-autocomplete .g-form-select__text--indicator {
     grid-column-start: 1;
   }
 }

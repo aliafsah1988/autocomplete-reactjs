@@ -8,9 +8,9 @@ class StoryComp extends React.Component {
 
     this.state = {
       options : [
-        { value: "chocolate", label: "Chocolate" },
-        { value: "strawberry", label: "Strawberry" },
-        { value: "vanilla", label: "Vanilla" }
+        { value: "pink-floyd", label: "Pink Floyd" },
+        { value: "led-zeppelin", label: "Led Zeppelin" },
+        { value: "hendrix", label: "The Jimi Hendrix Experience" }
       ],
       isLoading: false,
       defaultValue: this.props.defaultValue
@@ -66,6 +66,7 @@ class StoryComp extends React.Component {
         className = {this.props.className}
         size = {this.props.size}
         shadow = {this.props.shadow}
+        indicatorColor = "#5667E0"
       />)
   }
 }
@@ -74,29 +75,29 @@ storiesOf("Components/Autocomplete", module)
   .add("Default", () => 
   {
     return <StoryComp 
-      className = {'hero-autocomplete'}
+      className = {'default-autocomplete'}
       placeholder = {'Best Bands'}
     />
   })
-  .add("Search Page", () => 
+  .add("Radius", () => 
   {
     return <StoryComp 
-      className = {'search-page-autocomplete'}
+      className = {'radius-autocomplete'}
       placeholder = {'Where do you want to buy?'}
     />
   })
   .add("Default value", () => 
   {
     return <StoryComp 
-      className = {'search-page-autocomplete'}
+      className = {'radius-autocomplete'}
       placeholder = {'Where do you want to buy?'}
-      defaultValue = {{ value: "strawberry", label: "Strawberry" }}
+      defaultValue = {{ value: "pink-floyd", label: "Pink Floyd" }}
     />
   })
   .add("Small", () => 
   {
     return <StoryComp 
-      className = {'hero-autocomplete'}
+      className = {'default-autocomplete'}
       size="small"
       placeholder = {'Best Bands'}
     />
@@ -104,7 +105,7 @@ storiesOf("Components/Autocomplete", module)
   .add("No Shadow", () => 
   {
     return <StoryComp 
-      className = {'hero-autocomplete'}
+      className = {'default-autocomplete'}
       shadow={false}
       placeholder = {'Best Bands'}
     />

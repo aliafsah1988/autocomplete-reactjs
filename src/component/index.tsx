@@ -145,9 +145,10 @@ export default class Location extends React.Component<IAutocompleteProps, IState
       defaultValue,
       isLoading,
       options,
-      onBlur
+      indicatorColor
     } = this.props;
 
+    console.log(`indicatorColor: ${indicatorColor}`);
     const optionComponents = options && options.length > 0 && options.map((option, index) => {
       const style = this.state.active === index ? {background: ' #EFF7FA'} : {background: 'white'};
       
@@ -165,12 +166,12 @@ export default class Location extends React.Component<IAutocompleteProps, IState
 
      return (
       <div 
-        className={`g-autocomplete ${className} ${size} 
+        className={`autocomplete ${className} ${size} 
         ${!shadow && 'noshadow'}`}
       >
-        <div className="g-form-select__text">
+        <div className="form-select__text">
           <input 
-            className="g-form-select--input"
+            className="form-select--input"
             type='text'
             id= "input-text"
             placeholder={placeholder}
@@ -182,7 +183,7 @@ export default class Location extends React.Component<IAutocompleteProps, IState
           />
           
           {isLoading ? 
-          <div className="g-autocomplete__icon g-form-select__text--loading medium">
+          <div className="autocomplete__icon form-select__text--loading medium">
             <BeatLoader
               size={8}
               color={"#333333"}
@@ -190,12 +191,14 @@ export default class Location extends React.Component<IAutocompleteProps, IState
             />
           </div> : null}
           {this.state.selected && this.state.selected.value && this.state.selected.value.length > 0 ? 
-            <div className="g-autocomplete__icon g-form-select__text--close medium" onClick={() => this.handleClose()}>
+            <div className="autocomplete__icon form-select__text--close medium" onClick={() => this.handleClose()}>
             <i className="icon-close" />
             </div> 
           : null}
           
-          <div className="g-autocomplete__icon g-form-select__text--indicator medium" onClick={() => this.handleIndicatorIconClick()}>
+          <div className="autocomplete__icon form-select__text--indicator medium"
+            style={ { backgroundColor: indicatorColor } }
+            onClick={() => this.handleIndicatorIconClick()}>
             <i className= {indicatorIcon}/>
           </div>
         </div>
@@ -203,7 +206,7 @@ export default class Location extends React.Component<IAutocompleteProps, IState
         <div className="dropdown-options">
           { optionComponents }
           {isLoading ? 
-            <div className="g-autocomplete__icon dropdown-options__item--loading medium">
+            <div className="autocomplete__icon dropdown-options__item--loading medium">
               <span>Loading ...</span>
             </div> 
           : null}
