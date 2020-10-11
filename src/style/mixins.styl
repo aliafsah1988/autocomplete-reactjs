@@ -1,0 +1,33 @@
+border-radius(v) 
+    border-radius v
+    -webkit-border-radius v
+
+box-shadow(v) 
+    box-shadow v
+    -webkit-box-shadow v
+
+responsive($type)
+    if $type==xxs
+        @media only screen and (max-width: 375px)
+            {block}
+    if $type==sm
+        @media only screen and (min-width: 768px) and (max-width: 992px)
+            {block}
+    else if $type==sm-all
+        @media only screen and (max-width: 992px)
+            {block}
+    else if $type==xs
+        @media only screen and (max-width: 767px)
+            {block}
+    else if $type==md
+        @media only screen and (min-width: 993px)
+            {block}
+    else if $type==md-between
+        @media only screen and (min-width: 992px) and (max-width: 1199px)
+            {block}
+    else if $type==md-all
+        @media only screen and (max-width: 1199px)
+            {block}
+    else if $type==lg
+        @media only screen and (min-width: 1200px)
+            {block}

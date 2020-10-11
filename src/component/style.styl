@@ -1,0 +1,175 @@
+@import '../style/required'
+
+.g-autocomplete
+  position relative
+  display inline-block
+  width 100%
+  background-color $white
+  box-shadow(0px 2px 6px rgba(0, 0, 0, 0.25))
+  border 1px solid #b4bad2
+  &.noshadow 
+    box-shadow(none)
+  &.small
+    .g-form-select__text
+      height 42px
+    .g-form-select--input
+      height 42px
+
+  .g-form-select__text
+    width 100%
+    display flex
+    .g-form-select--input
+      background-color $white
+      padding 16px
+      font-size 17px
+      border none
+      cursor pointer
+      width 100%
+      color $gray
+      line-height 20px
+      +responsive(xs)
+        padding 16px 16px 16px 0
+      +responsive(xxs)
+        padding 16px 16px 16px 0
+      &:focus
+        outline none
+    .g-autocomplete__icon
+      position relative
+      font-size: 21px
+      display: flex;
+      justify-content: center;
+      .icon-search
+        margin auto
+      .icon-close
+        margin auto
+    .g-form-select__text--indicator
+      width 52px
+      margin 0
+      font-size 16px
+    .g-form-select__text--loading
+      width 35px
+      color $gray
+      div
+        display flex
+        margin-top auto
+        margin-bottom auto
+        width 35px
+    .g-form-select__text--close
+      width 35px
+      color $gray
+      margin-top auto
+      margin-bottom auto
+      font-size 15px 
+      &:hover
+        color $gray
+  .dropdown-options
+    position absolute
+    background-color $gray
+    min-width 160px
+    box-shadow(0px 8px 16px rgba(0,0,0,0.2))
+    z-index 1
+    width 100%
+    border 1px solid #b4bad2
+    margin-top 5px
+    border-radius 5px
+    .dropdown-options__item
+      color $gray
+      padding 12px 16px
+      text-decoration none
+      display block
+      // &:hover
+      //   background $nBasicFive
+    .dropdown-options__item--loading
+      color $gray
+      padding 12px 16px
+      text-decoration none
+      display block
+      display flex
+      span
+        margin auto
+
+.hero-autocomplete
+  border-radius 4px
+  .g-form-select--input
+    color $gray
+  .g-form-select__text--loading
+    border-radius 4px
+    margin-right 5px
+      div
+        margin-right 3px
+  .g-form-select__text--indicator
+    color $white
+    background $gray
+    min-width 47px
+    .icon-search
+        color $white
+        background $gray
+  +responsive(xs)
+    .g-form-select__text--indicator
+      order 1
+      color $gray
+      background $white
+      .icon-search
+        color $gray
+        background $white
+    .g-form-select--input
+      order 2
+      border-radius 4px
+    .g-form-select__text--loading
+      order 3
+    .g-form-select__text--close
+      order 4
+  +responsive(xxs)
+    .g-form-select__text--indicator
+      order 1
+      min-width 45px
+      color $gray
+      background $white
+      .icon-search
+        color $gray
+        background $white
+    .g-form-select--input
+      order 2
+    .g-form-select__text--loading
+      order 3
+    .g-form-select__text--close
+      order 4
+
+.search-page-autocomplete
+  border-radius 62px
+  box-shadow(0px 1px 6px rgba(0, 0, 0, 0.2))
+  .g-form-select__text
+    border-radius 62px
+    display grid
+    grid-template-columns 40px auto 40px
+    .g-form-select__text--indicator
+      order 1
+      border-radius 62px
+      color $black
+      background $white
+      .icon-search
+          color $black
+          background $white
+    .g-form-select--input
+      order 2
+      border-radius 62px
+      max-width 689px
+    .g-form-select__text--loading
+      order 3
+      div
+        margin-right 3px
+    .g-form-select__text--close
+      order 4
+      margin-right 5px
+  +responsive(xs)
+    .g-form-select--input
+      font-size 15px
+      text-align center
+    .g-form-select__text--indicator
+      grid-column-start 1
+  +responsive(xxs)
+    .g-form-select--input
+      font-size 15px
+      text-align center
+    .g-form-select__text--indicator
+      grid-column-start 1
