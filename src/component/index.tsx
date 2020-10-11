@@ -6,15 +6,9 @@ import BeatLoader from "react-spinners/BeatLoader";
 import './style.styl';
 
 // Interfaces
-import IAutocompleteProps from "../interfaces/IAutocompleteProps"
+import IAutocompleteProps from "../interfaces/IAutocompleteProps";
+import IAutocompleteState from "../interfaces/IAutocompleteState"
 import IOption from "../interfaces/IOption";
-
-interface IState {
-  showOptions: boolean,
-  selected?: IOption,
-  inputValue: string,
-  active: number
-}
 
 class Option implements IOption {
   constructor(value: string, label: string) {
@@ -25,7 +19,7 @@ class Option implements IOption {
   public label = '';
 }
 
-export default class Location extends React.Component<IAutocompleteProps, IState> {
+export default class Autocomplete extends React.Component<IAutocompleteProps, IAutocompleteState> {
   state = {
     showOptions: false,
     selected: new Option('', ''),
@@ -35,7 +29,6 @@ export default class Location extends React.Component<IAutocompleteProps, IState
 
   constructor(props: IAutocompleteProps) {
     super(props);
-
   }
 
   handleSelect(option: IOption) {
