@@ -14,6 +14,7 @@ interface IAutocompleteProps {
   defaultValue?: IOption,
   indicatorColor?: string,
   activeColor?: string,
+  closeIcon?: string
 }
 
 export default IAutocompleteProps

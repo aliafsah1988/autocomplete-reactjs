@@ -148,7 +148,8 @@ export default class Autocomplete extends React.Component<IAutocompleteProps, IA
       defaultValue,
       indicatorColor,
       indicatorIcon,
-      activeColor
+      activeColor,
+      closeIcon
     } = this.props;
 
     const {
@@ -199,14 +200,24 @@ export default class Autocomplete extends React.Component<IAutocompleteProps, IA
           </div> : null}
           {this.state.selected && this.state.selected.value && this.state.selected.value.length > 0 ? 
             <div className="autocomplete__icon form-select__text--close medium" onClick={() => this.handleClose()}>
-            <i className="icon-close" />
+            { 
+              closeIcon ? closeIcon : 
+              <img className="icon-close"
+                src={require("../assets/close.svg") }>
+              </img>
+            }
             </div> 
           : null}
           
           <div className="autocomplete__icon form-select__text--indicator medium"
             style={ { backgroundColor: indicatorColor } }
             onClick={() => this.handleIndicatorIconClick()}>
-            { indicatorIcon }
+            { 
+              indicatorIcon ? indicatorIcon : 
+              <img className="icon-search"
+                src={require("../assets/search.svg") }>
+              </img>
+            }
           </div>
         </div>
         {(this.state.showOptions && options && options.length > 0 && this.state.inputValue.length > 0) || isLoading ? 

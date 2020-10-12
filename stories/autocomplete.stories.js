@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import Autocomplete from "../src/component";
+import Autocomplete from "../src/component/Autocomplete";
 
 class StoryComp extends React.Component {
   constructor( props ){
@@ -38,12 +38,19 @@ class StoryComp extends React.Component {
     return (
       <Autocomplete
         placeholder= {this.props.placeholder}
-        indicatorIcon={<img className="icon-search" src={require("../src/assets/search.svg") }></img>}
+        indicatorIcon={
+          <img className="icon-search"
+            src={require("../src/assets/search.svg") }>
+          </img>
+        }
+        indicatorIcon={
+          <img className="icon-close"
+            src={require("../src/assets/close.svg") }>
+          </img>
+        }
         onSelect={this.onSelect.bind(this)}
-        asyncCallback= {this.asyncCallback.bind(this)}
+        asyncCallback= {this.wait.bind(this)}
         onBlur = {this.onBlur.bind(this)}
-        options= {this.state.options}
-        isLoading={this.state.isLoading}
         defaultValue= {this.state.defaultValue}
         className={this.props.className}
         size={this.props.size}
