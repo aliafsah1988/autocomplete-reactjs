@@ -52,8 +52,12 @@
   display: flex;
   justify-content: center;
 }
+.autocomplete .form-select__text .autocomplete__icon .icon-search {
+  width: 24px;
+}
 .autocomplete .form-select__text .autocomplete__icon .icon-close {
   margin: auto;
+  width: 12px;
 }
 .autocomplete .form-select__text .form-select__text--indicator {
   width: 52px;
