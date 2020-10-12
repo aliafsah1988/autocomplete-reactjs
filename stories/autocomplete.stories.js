@@ -7,38 +7,21 @@ class StoryComp extends React.Component {
     super(props);
 
     this.state = {
-      options : [
-        { value: "pink-floyd", label: "Pink Floyd" },
-        { value: "led-zeppelin", label: "Led Zeppelin" },
-        { value: "hendrix", label: "The Jimi Hendrix Experience" }
-      ],
-      isLoading: false,
       defaultValue: this.props.defaultValue
     }
   }
 
-  async wait(ms) {
+  async wait() {
+    this.setState({ defaultValue: null });
     // mocking an API call
     return new Promise(resolve => {
-      setTimeout(resolve, ms);
-    });
-  }
-
-  async onChange(value) {
-    if(!value || value.length < 1) {
-      this.setState({ options: [], isLoading: false, defaultValue: null });
-      return
-    }
-    this.setState({ options: [], isLoading: true, defaultValue: null });
-
-    await this.wait(3000);
-
-    this.setState({ options: [
-        { value: "pink-floyd", label: "Pink Floyd" },
-        { value: "led-zeppelin", label: "Led Zeppelin" },
-        { value: "hendrix", label: "The Jimi Hendrix Experience" }
-      ],
-      isLoading: false
+      setTimeout(() => {
+        resolve([
+          { value: "pink-floyd", label: "Pink Floyd" },
+          { value: "led-zeppelin", label: "Led Zeppelin" },
+          { value: "hendrix", label: "The Jimi Hendrix Experience" }
+        ])
+      }, 3000);
     });
   }
 
@@ -57,7 +40,7 @@ class StoryComp extends React.Component {
         placeholder= {this.props.placeholder}
         indicatorIcon={<img className="icon-search" src={require("../src/assets/search.svg") }></img>}
         onSelect={this.onSelect.bind(this)}
-        onChange= {this.onChange.bind(this)}
+        asyncCallback= {this.asyncCallback.bind(this)}
         onBlur = {this.onBlur.bind(this)}
         options= {this.state.options}
         isLoading={this.state.isLoading}
@@ -67,7 +50,8 @@ class StoryComp extends React.Component {
         shadow={this.props.shadow}
         indicatorColor="#DEE6E9"
         activeColor= "#EFF7FA"
-      />)
+      />
+    )
   }
 }
 

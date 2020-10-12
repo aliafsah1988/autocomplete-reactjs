@@ -5,26 +5,20 @@ import BeatLoader from "react-spinners/BeatLoader";
 // Style
 import './style.styl';
 
-// Interfaces
+// Interfaces & Classes
 import IAutocompleteProps from "../interfaces/IAutocompleteProps";
 import IAutocompleteState from "../interfaces/IAutocompleteState"
 import IOption from "../interfaces/IOption";
-
-class Option implements IOption {
-  constructor(value: string, label: string) {
-    this.value = value;
-    this.label = label;
-  }
-  public value = '';
-  public label = '';
-}
+import Option from "../classes/option";
 
 export default class Autocomplete extends React.Component<IAutocompleteProps, IAutocompleteState> {
   state = {
     showOptions: false,
     selected: new Option('', ''),
     inputValue: '', // not binded to input directly
-    active: -1
+    active: -1,
+    options: new Array<IOption>(),
+    isLoading: false
   }
 
   constructor(props: IAutocompleteProps) {
@@ -46,14 +40,31 @@ export default class Autocomplete extends React.Component<IAutocompleteProps, IA
     this.props.onSelect();
   }
 
-  handleChange(event: any) {
+  async handleChange(event: any) {
     const newValue = event.target.value
+
+    if(!newValue || newValue.length < 1) {
+      this.setState({ options: [], isLoading: false });
+      return
+    }
+
     this.setState({
       showOptions: true,
       inputValue: newValue,
-      selected: new Option('', '')
+      selected: new Option('', ''),
+      options: [],
+      isLoading: true
     });
-    this.props.onChange(newValue);
+    
+    let options = new Array<IOption>();
+    if(this.props.asyncCallback)
+      options = await this.props.asyncCallback();
+    else if(this.props.callback)
+      options = this.props.callback();
+
+    this.setState({ options: options,
+      isLoading: false
+    });
   }
   
   handleKeyDown(event: any) {
@@ -63,20 +74,20 @@ export default class Autocomplete extends React.Component<IAutocompleteProps, IA
       return;
     }
     // Enter
-    if(event.keyCode == 13 && this.props.options && this.props.options.length > 0) {
+    if(event.keyCode == 13 && this.state.options && this.state.options.length > 0) {
       let selectedIndex = this.getSelectedOptionIndex();
-      this.handleSelect(this.props.options[selectedIndex]);
+      this.handleSelect(this.state.options[selectedIndex]);
       return;
     }
 
-    if(event.keyCode == 40 && this.props.options && this.props.options.length > 0) {
-      if(this.state.active < this.props.options.length - 1) {
+    if(event.keyCode == 40 && this.state.options && this.state.options.length > 0) {
+      if(this.state.active < this.state.options.length - 1) {
         this.setState({ active: this.state.active + 1});
       }
       return;
     }
 
-    if(event.keyCode == 38 && this.props.options && this.props.options.length > 0) {
+    if(event.keyCode == 38 && this.state.options && this.state.options.length > 0) {
       if(this.state.active > 0) {
         this.setState({ active: this.state.active - 1});
       }
@@ -100,7 +111,7 @@ export default class Autocomplete extends React.Component<IAutocompleteProps, IA
 
   getSelectedOptionIndex() {
     let selectedIndex = 0;
-    if(this.state.active > -1 && this.state.active < this.props.options.length)
+    if(this.state.active > -1 && this.state.active < this.state.options.length)
     selectedIndex = this.state.active;
     return selectedIndex;
   }
@@ -135,14 +146,17 @@ export default class Autocomplete extends React.Component<IAutocompleteProps, IA
       size = "medium",
       shadow = true,
       defaultValue,
-      isLoading,
-      options,
       indicatorColor,
       indicatorIcon,
       activeColor
     } = this.props;
 
-    const optionComponents = options && options.length > 0 && options.map((option, index) => {
+    const {
+      options,
+      isLoading
+    } = this.state;
+
+    const optionComponents = options && options.length > 0 && options.map((option: IOption, index: number) => {
       const style = this.state.active === index ? {background: activeColor} : {background: 'white'};
       
       return (
