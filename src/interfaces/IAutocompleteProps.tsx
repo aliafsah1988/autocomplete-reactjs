@@ -13,5 +13,6 @@ export default interface IAutocompleteProps {
   options?: Array<any>,
   isLoading?: boolean,
   defaultValue?: IOption,
-  indicatorColor?: string
+  indicatorColor?: string,
+  activeColor?: string,
 }

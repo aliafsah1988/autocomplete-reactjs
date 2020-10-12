@@ -138,11 +138,12 @@ export default class Autocomplete extends React.Component<IAutocompleteProps, IA
       isLoading,
       options,
       indicatorColor,
-      indicatorIcon
+      indicatorIcon,
+      activeColor
     } = this.props;
 
     const optionComponents = options && options.length > 0 && options.map((option, index) => {
-      const style = this.state.active === index ? {background: ' #EFF7FA'} : {background: 'white'};
+      const style = this.state.active === index ? {background: activeColor} : {background: 'white'};
       
       return (
         <a className="dropdown-options__item" 

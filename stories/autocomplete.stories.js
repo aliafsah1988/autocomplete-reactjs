@@ -62,10 +62,11 @@ class StoryComp extends React.Component {
         options= {this.state.options}
         isLoading={this.state.isLoading}
         defaultValue= {this.state.defaultValue}
-        className = {this.props.className}
-        size = {this.props.size}
-        shadow = {this.props.shadow}
-        indicatorColor = "#5667E0"
+        className={this.props.className}
+        size={this.props.size}
+        shadow={this.props.shadow}
+        indicatorColor="#DEE6E9"
+        activeColor= "#EFF7FA"
       />)
   }
 }
