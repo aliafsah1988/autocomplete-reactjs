@@ -1,6 +1,6 @@
 import IOption from "./IOption"
 
-export default interface IState {
+interface IAutocompleteState {
   showOptions: boolean,
   selected?: IOption,
   inputValue: string,
@@ -8,3 +8,5 @@ export default interface IState {
   options?: Array<IOption>,
   isLoading?: boolean,
 }
+
+export default IAutocompleteState

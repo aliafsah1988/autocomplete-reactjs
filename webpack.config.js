@@ -33,6 +33,9 @@ module.exports = {
       {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
+        include: [ path.resolve(__dirname, 'src/component'),
+        path.resolve(__dirname, 'src/interfaces'),
+        path.resolve(__dirname, 'src/classes') ],
         use: [
           {
             loader: "ts-loader"

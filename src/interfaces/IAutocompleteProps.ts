@@ -1,6 +1,6 @@
 import IOption from "./IOption"
 
-export default interface IAutocompleteProps {
+interface IAutocompleteProps {
   shadow?: boolean,
   className?: string,
   placeholder?: string,
@@ -15,3 +15,5 @@ export default interface IAutocompleteProps {
   indicatorColor?: string,
   activeColor?: string,
 }
+
+export default IAutocompleteProps
