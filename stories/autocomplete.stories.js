@@ -55,8 +55,7 @@ class StoryComp extends React.Component {
     return (
       <Autocomplete
         placeholder= {this.props.placeholder}
-        icon={"icon-twitter"}
-        indicatorIcon={"icon-search"}
+        indicatorIcon={<img className="icon-search" src={require("../src/assets/search.svg") }></img>}
         onSelect={this.onSelect.bind(this)}
         onChange= {this.onChange.bind(this)}
         onBlur = {this.onBlur.bind(this)}
@@ -83,14 +82,14 @@ storiesOf("Components/Autocomplete", module)
   {
     return <StoryComp 
       className = {'radius-autocomplete'}
-      placeholder = {'Where do you want to buy?'}
+      placeholder = {'Which one is the best band ever?'}
     />
   })
   .add("Default value", () => 
   {
     return <StoryComp 
       className = {'radius-autocomplete'}
-      placeholder = {'Where do you want to buy?'}
+      placeholder = {'Which one is the best band ever?'}
       defaultValue = {{ value: "pink-floyd", label: "Pink Floyd" }}
     />
   })

@@ -134,14 +134,13 @@ export default class Autocomplete extends React.Component<IAutocompleteProps, IA
       className,
       size = "medium",
       shadow = true,
-      indicatorIcon = "icon-search",
       defaultValue,
       isLoading,
       options,
-      indicatorColor
+      indicatorColor,
+      indicatorIcon
     } = this.props;
 
-    console.log(`indicatorColor: ${indicatorColor}`);
     const optionComponents = options && options.length > 0 && options.map((option, index) => {
       const style = this.state.active === index ? {background: ' #EFF7FA'} : {background: 'white'};
       
@@ -192,7 +191,7 @@ export default class Autocomplete extends React.Component<IAutocompleteProps, IA
           <div className="autocomplete__icon form-select__text--indicator medium"
             style={ { backgroundColor: indicatorColor } }
             onClick={() => this.handleIndicatorIconClick()}>
-            <i className= {indicatorIcon}/>
+            { indicatorIcon }
           </div>
         </div>
         {(this.state.showOptions && options && options.length > 0 && this.state.inputValue.length > 0) || isLoading ? 
